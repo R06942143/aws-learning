@@ -62,3 +62,15 @@ pass
 ## AWS Availability Zone
 - Each region has multiple, isolated locations known as Availability Zones(usually 3 AZs)
 - They are physically separated from each other, but are connected with low latency, high throughput, and highly redundant networking
+
+## Tour of the AWS console
+- AWS has Global Services:
+  - IAM
+  - Route 53
+  - CloudFront
+  - WAF
+- AWS has Regional Services:
+  - EC2 (IaaS)
+  - Elastic Beanstalk (PaaS)
+  - Lambda (Serverless/FaaS)
+  - Rekognition (AI/SaaS)
