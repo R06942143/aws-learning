@@ -77,3 +77,51 @@
   - Application Load Balancer (HTTP / HTTPS only) - Layer 7
   - Network Load Balancer (ultra-high performance, allows for TCP) - Layer 4
   - Gateway Load Balancer (new) - Layer 3
+![Alt text](image.png)
+
+## What's an Auto Scaling Group?
+- In real-life, the load on your websites and applications can change
+- In the cloud, you can create and get rid of servers very quickly
+- The goal of an Auto Scaling Group(ASG) is to:
+  - Scale out (add EC2 instances) to match an increased load
+  - Scale in (remove EC2 instances) to match a decreased load
+  - Ensure we have a minimum and a maximum number of machines running
+  - Automatically register new instances to a load balancer
+  - Replace unhealthy instances
+- Cost Saving: only run at an optimal capacity (principle of cloud)
+
+
+## Auto Scaling Group in AWS
+![Alt text](image-1.png)
+
+## Auto Scaling Group in AWS With Load Balancer
+![Alt text](image-2.png)
+
+## Auto Scaling Group - Scaling Strategies
+- Manaual Scaling
+  - Not recommended
+  - Set the ASG size yourself (eg: min = 5, max = 10, desired = 5)
+- Dynamic Scaling: Respond to changing demand
+  - Simple / Step Scaling
+    - When a CloudWatch alarm is triggered (example: CPU > 70%), then add 2 units
+    - When a CloudWatch alarm is triggered (example: CPU < 30%), then remove 1 unit
+  - Target Tracking Scaling (default)
+    - Most simple and easy to set-up
+    - Example: I want the average ASG CPU to stay at around 40%
+  - Scheduled Scaling
+    - Anticipate a scaling based on known usage patterns
+    - Example: increase the min capacity to 10 at 5pm on Fridays
+  - Predictive Scaling (new)
+    - Uses Machine Learning to predict the future
+    - Example: increase capacity by 20 at 4:30pm based on an event (eg: a TV ad)
+
+# ELB & ASG - Summary
+- High Availability vs Scalability (Vertical vs Horizontal) vs Elasticity vs Agility in the Cloud
+- Elastic Load Balancer (ELB)
+  - Distribute traffic across AZs in one region
+  - Supports health checks
+  - 4 types: Classic, Application, Network, Gateway
+- Auto Scaling Groups (ASG)
+  - Implement elasticity for your application
+  - Scale EC2 instances based on metrics (CPU, ASG...)
+  - integrated with ELB, can be triggered by CloudWatch
